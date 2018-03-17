@@ -7,7 +7,7 @@ exports.index = function(req, res) {
 	// .populate('category')
 	.exec(function(err, data) {
 		if (err) {
-			res.json(500, {msg: 'Error getting links.', err: err});
+			res.json(500, {msg: 'Error getting Datas.', err: err});
 		}
 		else {
 			res.json(data);
@@ -20,7 +20,20 @@ exports.findById = function(req, res) {
 	// .populate('category')
 	.exec(function(err, data) {
 		if (err) {
-			res.json(500, {msg: 'Error getting Link.', err: err});
+			res.json(500, {msg: 'Error getting Data.', err: err});
+		}
+		else {
+			res.json(data);
+		}
+	});
+};
+
+exports.findByTxHash = function(req, res) {
+	DataModel.findOne({ 'txHash': req.params.txhash })
+	// .populate('category')
+	.exec(function(err, data) {
+		if (err) {
+			res.json(500, {msg: 'Error getting Data.', err: err});
 		}
 		else {
 			res.json(data);
@@ -32,7 +45,7 @@ exports.update = function(req, res) {
 	DataModel.findById(req.params.id)
 	.exec(function(err, data) {
 		if (err) {
-			res.json(500, {msg: 'Error getting link.', err: err});
+			res.json(500, {msg: 'Error getting Data.', err: err});
 		}
 		else {
 			if (req.body.hasOwnProperty('owner')) {
