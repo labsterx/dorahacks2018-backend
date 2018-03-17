@@ -41,6 +41,21 @@ exports.findByTxHash = function(req, res) {
 	});
 };
 
+
+exports.findByTokenId = function(req, res) {
+	DataModel.findOne({ 'tokenid': req.params.tokenid })
+	// .populate('category')
+	.exec(function(err, data) {
+		if (err) {
+			res.json(500, {msg: 'Error getting Data.', err: err});
+		}
+		else {
+			res.json(data);
+		}
+	});
+};
+
+
 exports.update = function(req, res) {
 	DataModel.findById(req.params.id)
 	.exec(function(err, data) {

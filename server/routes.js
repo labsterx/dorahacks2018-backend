@@ -47,6 +47,8 @@ app.all('*', function(req, res, next) {
 	app.post('/api/data', data.create);
 	app.get('/api/data/:id', data.findById);
 	app.get('/api/data/txhash/:txhash', data.findByTxHash);
+	app.get('/api/data/tokenid/:tokenid', data.findByTokenId);
+	
 	app.put('/api/data/:id', data.update);
 	app.delete('/api/data/:id', data.delete);
 
