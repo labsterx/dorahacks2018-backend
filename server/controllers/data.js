@@ -38,6 +38,9 @@ exports.update = function(req, res) {
 			if (req.body.hasOwnProperty('owner')) {
 				data.owner = req.body.owner;
 			}
+			if (req.body.hasOwnProperty('txHash')) {
+				data.txHash = req.body.txHash;
+			}			
 			if (req.body.hasOwnProperty('title')) {
 				data.title = req.body.title;
 			}
@@ -76,6 +79,7 @@ exports.delete = function(req, res) {
 exports.create = function(req, res) {
 	var newData = new DataModel({
 		owner: req.body.owner,
+		txHash: req.body.txHash,
 		title: req.body.title,
 		imageurl: req.body.imageurl,
 		description: req.body.description
