@@ -29,6 +29,13 @@ module.exports = function(app) {
 		}
 	});
 
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 	// Auth
 	app.post('/auth', auth.auth);
 	// app.post('/auth/encrypt', auth.encrypt);
