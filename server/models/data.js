@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var DataSchema = new Schema({
 	owner:        { type: String, required: true, trim: true },
+	tokenid:       { type: Number, required: true, trim: true },
 	txHash:       { type: String, required: true, trim: true },
 	title:        { type: String, required: true, trim: true },
 	imageurl:     { type: String, required: false, trim: true },
